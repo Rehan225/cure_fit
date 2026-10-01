@@ -1,0 +1,58 @@
+import '../models/achievement.dart';
+
+final List<Achievement> mockAchievements = [
+  const Achievement(
+    id: 'ach_1',
+    title: 'First Workout',
+    description: 'Complete your first live or on-demand workout.',
+    unlockCondition: 'Complete 1 workout',
+    isUnlocked: true,
+    currentProgress: 1,
+    targetProgress: 1,
+  ),
+  const Achievement(
+    id: 'ach_2',
+    title: 'Workout Warrior',
+    description: 'Complete 10 workouts to establish a strong base.',
+    unlockCondition: 'Complete 10 workouts (7 done)',
+    isUnlocked: false,
+    currentProgress: 7,
+    targetProgress: 10,
+  ),
+  const Achievement(
+    id: 'ach_3',
+    title: '7 Day Streak',
+    description: 'Log active minutes for seven consecutive days.',
+    unlockCondition: 'Reach a 7-day streak',
+    isUnlocked: true,
+    currentProgress: 7,
+    targetProgress: 7,
+  ),
+  const Achievement(
+    id: 'ach_4',
+    title: 'Calorie Crusher',
+    description: 'Burn a total of 5,000 calories across all sessions.',
+    unlockCondition: 'Burn 5,000 kcal (3,420 done)',
+    isUnlocked: false,
+    currentProgress: 3420,
+    targetProgress: 5000,
+  ),
+  const Achievement(
+    id: 'ach_5',
+    title: 'Yoga Beginner',
+    description: 'Complete 5 guided yoga sessions.',
+    unlockCondition: 'Complete 5 yoga sessions (3 done)',
+    isUnlocked: false,
+    currentProgress: 3,
+    targetProgress: 5,
+  ),
+  const Achievement(
+    id: 'ach_6',
+    title: 'Mindful Master',
+    description: 'Complete 5 meditation or breathing sessions.',
+    unlockCondition: 'Complete 5 sessions',
+    isUnlocked: true,
+    currentProgress: 5,
+    targetProgress: 5,
+  ),
+];
