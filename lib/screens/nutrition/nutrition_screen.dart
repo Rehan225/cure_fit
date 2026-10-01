@@ -446,7 +446,7 @@ class _NutritionScreenState extends State<NutritionScreen>
               crossAxisCount: 2,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: 0.68,
+              childAspectRatio: 0.55,
             ),
             itemCount: filteredMeals.length,
             itemBuilder: (context, index) {

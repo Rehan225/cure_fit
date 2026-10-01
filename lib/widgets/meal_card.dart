@@ -34,7 +34,7 @@ class MealCard extends StatelessWidget {
                 topRight: Radius.circular(AppTheme.radiusLarge),
               ),
               child: AspectRatio(
-                aspectRatio: 4 / 3,
+                aspectRatio: 16 / 10,
                 child: Image.asset(
                   meal.imagePath,
                   fit: BoxFit.cover,
@@ -52,95 +52,109 @@ class MealCard extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.warmOat,
-                      borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
-                    ),
-                    child: Text(
-                      meal.category,
-                      style: const TextStyle(
-                        fontFamily: 'WorkSans',
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.deepForest,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    meal.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontFamily: 'WorkSans',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.deepForest,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '₹${meal.price}',
-                        style: const TextStyle(
-                          fontFamily: 'WorkSans',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.deepForest,
-                        ),
-                      ),
-                      Text(
-                        '${meal.calories} kcal',
-                        style: const TextStyle(
-                          fontFamily: 'WorkSans',
-                          fontSize: 12,
-                          color: AppColors.orange,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Text('${meal.protein}g protein', style: AppTextStyles.label),
-                  if (onAddToCart != null) ...[
-                    const SizedBox(height: 8),
-                    InkWell(
-                      onTap: onAddToCart,
-                      borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 6),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: AppColors.teal,
-                          borderRadius: BorderRadius.circular(
-                            AppTheme.radiusSmall,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.warmOat,
+                            borderRadius: BorderRadius.circular(
+                              AppTheme.radiusSmall,
+                            ),
+                          ),
+                          child: Text(
+                            meal.category,
+                            style: const TextStyle(
+                              fontFamily: 'WorkSans',
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.deepForest,
+                            ),
                           ),
                         ),
-                        child: const Text(
-                          'Add to order',
-                          style: TextStyle(
+                        const SizedBox(height: 4),
+                        Text(
+                          meal.name,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
                             fontFamily: 'WorkSans',
-                            fontSize: 12,
+                            fontSize: 13,
                             fontWeight: FontWeight.w600,
                             color: AppColors.deepForest,
                           ),
                         ),
-                      ),
+                        const SizedBox(height: 4),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '₹${meal.price}',
+                              style: const TextStyle(
+                                fontFamily: 'WorkSans',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.deepForest,
+                              ),
+                            ),
+                            Text(
+                              '${meal.calories} kcal',
+                              style: const TextStyle(
+                                fontFamily: 'WorkSans',
+                                fontSize: 11,
+                                color: AppColors.orange,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          '${meal.protein}g protein',
+                          style: AppTextStyles.label,
+                        ),
+                      ],
                     ),
+                    if (onAddToCart != null)
+                      InkWell(
+                        onTap: onAddToCart,
+                        borderRadius: BorderRadius.circular(
+                          AppTheme.radiusSmall,
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: AppColors.teal,
+                            borderRadius: BorderRadius.circular(
+                              AppTheme.radiusSmall,
+                            ),
+                          ),
+                          child: const Text(
+                            'Add to order',
+                            style: TextStyle(
+                              fontFamily: 'WorkSans',
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.deepForest,
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
-                ],
+                ),
               ),
             ),
           ],

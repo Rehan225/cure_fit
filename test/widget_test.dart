@@ -96,6 +96,11 @@ void main() {
     expect(find.text('Meal Planner'), findsOneWidget);
     expect(find.text('Healthy Delivery'), findsOneWidget);
 
+    // Switch to Healthy Delivery tab to verify MealCard grid renders without overflow
+    await tester.tap(find.text('Healthy Delivery'));
+    await tester.pumpAndSettle();
+    expect(find.text('Add to order'), findsWidgets);
+
     // Tap Progress tab
     await tester.tap(
       find.descendant(
